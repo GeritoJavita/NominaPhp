@@ -1,43 +1,46 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require('fpdf186/fpdf.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre = $_POST['nombre'] ?? '';
-    $salarioBase = $_POST['salario'] ?? 0;
-    $diasTrabajados = $_POST['diasTrabajados'] ?? 0;
-    $bono = $_POST['bono'] ?? 0;
-
-    // Calcular salario diario
-    $salarioDiario = $salarioBase / 30;
-    $totalSalario = $salarioDiario * $diasTrabajados;
-
-    // Total con bono
-    $totalPagar = $totalSalario + $bono;
-    $descuento = 0.05 * $totalPagar;  // Suponiendo un 5% de descuento
-    $netoPagar = $totalPagar - $descuento;
+// Recibir datos del formulario
+$empleados = [];
+foreach ($_POST['nombre'] as $index => $nombre) {
+    $empleados[] = [
+        'nombre' => $nombre,
+        'salario' => $_POST['salario'][$index],
+        'diasTrabajados' => $_POST['diasTrabajados'][$index],
+        'bono' => $_POST['bono'][$index]
+    ];
 }
-?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado Nómina</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Detalle de la Nómina</h1>
-        <p><strong>Nombre del empleado:</strong> <?php echo htmlspecialchars($nombre); ?></p>
-        <p><strong>Salario base:</strong> $<?php echo number_format($salarioBase, 2); ?></p>
-        <p><strong>Días trabajados:</strong> <?php echo $diasTrabajados; ?></p>
-        <p><strong>Bono:</strong> $<?php echo number_format($bono, 2); ?></p>
-        <p><strong>Salario total (sin descuentos):</strong> $<?php echo number_format($totalPagar, 2); ?></p>
-        <p><strong>Descuento (5%):</strong> $<?php echo number_format($descuento, 2); ?></p>
-        <p><strong>Neto a pagar:</strong> $<?php echo number_format($netoPagar, 2); ?></p>
-    </div>
-</body>
-</html>
+// Función para generar nómina en PDF
+function generarNominaPDF($empleados) {
+    $pdf = new FPDF();
+    $pdf->AddPage();
+    $pdf->SetFont('Arial', 'B', 12);
+
+    $pdf->Cell(190, 10, 'Nómina de Empleados', 1, 1, 'C');
+
+    // Cabecera
+    $pdf->Cell(40, 10, 'Nombre', 1);
+    $pdf->Cell(40, 10, 'Salario Base', 1);
+    $pdf->Cell(40, 10, 'Dias Trabajados', 1);
+    $pdf->Cell(30, 10, 'Bono', 1);
+    $pdf->Cell(40, 10, 'Total a Pagar', 1);
+    $pdf->Ln();
+
+    // Datos de los empleados
+    foreach ($empleados as $empleado) {
+        $totalSalario = ($empleado['salario'] / 30) * $empleado['diasTrabajados'] + $empleado['bono'];
+        $pdf->Cell(40, 10, $empleado['nombre'], 1);
+        $pdf->Cell(40, 10, number_format($empleado['salario'], 2), 1);
+        $pdf->Cell(40, 10, $empleado['diasTrabajados'], 1);
+        $pdf->Cell(30, 10, number_format($empleado['bono'], 2), 1);
+        $pdf->Cell(40, 10, number_format($totalSalario, 2), 1);
+        $pdf->Ln();
+    }
+
+    // Salida del archivo
+    $pdf->Output('D', 'nomina.pdf');
+}
+
+generarNominaPDF($empleados);

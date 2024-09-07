@@ -8,21 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Nómina de empleados</h1>
-        <form action="nomina.php" method="POST">
-            <label for="nombre">Nombre del empleado:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="salario">Salario base:</label>
-            <input type="number" id="salario" name="salario" required>
-
-            <label for="diasTrabajados">Días trabajados:</label>
-            <input type="number" id="diasTrabajados" name="diasTrabajados" required>
-
-            <label for="bono">Bono:</label>
-            <input type="number" id="bono" name="bono" value="0">
-
-            <button type="submit">Generar Nómina</button>
+        <h1>Nómina Dinámica</h1>
+        <form action="formulario_nomina.php" method="POST">
+            <label for="numEmpleados">Ingrese la cantidad de empleados:</label>
+            <input type="number" id="numEmpleados" name="numEmpleados" min="1" required>
+            <button type="submit">Generar Formulario</button>
         </form>
     </div>
 </body>
