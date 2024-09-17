@@ -1,70 +1,91 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f0f2f5; 
     color: #333;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 600px;
-    width: 100%;
-    margin: 20px;
+    background-color: #fff; 
+
+
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 90%;
 }
 
 h1 {
     text-align: center;
-    color: #343a40;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    color: #007bff; 
+    font-size: 1.8rem;
+    margin-bottom: 30px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 label {
-    font-weight: 500;
-    color: #495057;
-    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 input[type="number"] {
+    width: 100%;
     padding: 12px;
     border: 1px solid #ced4da;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    border-radius: 25px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
 input[type="number"]:focus {
-    border-color: #007bff;
+    border-color: #28a745;
     outline: none;
 }
 
-button {
-    padding: 12px;
-    background-color: #007bff;
-    color: #ffffff;
+button[type="submit"] {
+    background-color: #007bff; 
+    color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+button[type="submit"]:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05);
+}
+
+.empleado {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    
+    margin: 30px; 
+   
+    background-color: 
+        alternate-color(
+            #f0f5fa, 
+            #e9ecef  
+        );
+}
+
+.empleado h3 {
+    margin-top: 0;
+    color: #343a40; /
 }
