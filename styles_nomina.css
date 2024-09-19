@@ -1,0 +1,103 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa; /* Color pastel azul muy claro */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 16px; /* Aumenta el tamaño de fuente */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px; /* Aumenta el padding */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 30px; /* Aumenta el espacio debajo del título */
+    font-size: 2.5rem; /* Aumenta el tamaño del título */
+    font-weight: 600;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 16px; /* Aumenta el tamaño de texto en la tabla */
+}
+
+thead th {
+    background-color: #e3f2fd; /* Color pastel azul claro */
+    color: #333;
+    padding: 16px; /* Aumenta el padding */
+    border-bottom: 2px solid #bbdefb; /* Color pastel azul más oscuro */
+    font-weight: 600;
+    text-align: left;
+}
+
+tbody td {
+    padding: 16px; /* Aumenta el padding */
+    border-bottom: 1px solid #e0e0e0; /* Color gris claro */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color gris muy claro */
+}
+
+tbody tr:hover {
+    background-color: #f1f8ff; /* Color azul pálido */
+}
+
+/* Estilos para los botones */
+.button {
+    padding: 14px 28px; /* Aumenta el tamaño del botón */
+    background-color: #4caf50; /* Color pastel verde */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px; /* Aumenta el tamaño de fuente */
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049; /* Color verde más oscuro */
+    transform: translateY(-2px);
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5); /* Color verde claro */
+}
+
+/* Estilos adicionales para el formulario */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 14px; /* Aumenta el padding */
+    border: 1px solid #cddc39; /* Color verde claro */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px; /* Aumenta el tamaño de fuente */
+    background-color: #fafafa; /* Color gris muy claro */
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #4caf50; /* Color verde más intenso */
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3); /* Color verde claro */
+}

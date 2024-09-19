@@ -3,39 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario de Nómina</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .container {
-            width: 70%;
-            margin: 0 auto;
-        }
-        .button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-        .table-container {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -50,6 +18,8 @@
                         <th>No Identificación</th>
                         <th>Sueldo</th>
                         <th>Días Laborados</th>
+                        <th>Fecha</th>
+                        <th>Horas Nocturas</th>
                     </tr>
                 </thead>
                 <tbody id="empleados">
@@ -60,10 +30,17 @@
                         <td><input type="text" name="no_identificacion[]" required></td>
                         <td><input type="number" name="sueldo[]" required></td>
                         <td><input type="number" name="dias_laborados[]" required></td>
+                        <td><input type="text" name="fecha_desembolso[]" require></td>
+                        <td><input type="number" name="horas_nocturnas[]" require></td>
+                        
+                        
+                        
+                        
+                    
                     </tr>
                 </tbody>
             </table>
-            <button type="button" onclick="agregarEmpleado()">Agregar Empleado</button>
+            <button type="button" class="add-button" onclick="agregarEmpleado()">Agregar Empleado</button>
             <input type="submit" class="button" value="Guardar y Ver Nómina">
         </form>
     </div>
@@ -79,6 +56,11 @@
                 <td><input type="text" name="no_identificacion[]" required></td>
                 <td><input type="number" name="sueldo[]" required></td>
                 <td><input type="number" name="dias_laborados[]" required></td>
+
+       
+                        <td><input type="text" name="fecha_desembolso[]" require></td>
+        
+                        <td><input type="number" name="horas_nocturnas[]" require></td>
             `;
             tabla.appendChild(fila);
         }
